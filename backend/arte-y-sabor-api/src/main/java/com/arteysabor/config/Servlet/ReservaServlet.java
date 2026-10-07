@@ -302,7 +302,79 @@ public class ReservaServlet extends HttpServlet {
             return;
         }
 
+                // =====================================================
+        // ELIMINAR RESERVA
+        // =====================================================
 
+        if ("eliminar".equals(accion)) {
+
+            String idTexto =
+                    request.getParameter("idReserva");
+
+            response.setHeader(
+                    "Access-Control-Allow-Origin",
+                    "*"
+            );
+
+            response.setContentType(
+                    "application/json;charset=UTF-8"
+            );
+
+            PrintWriter out =
+                    response.getWriter();
+
+            if (idTexto == null
+                    || idTexto.trim().isEmpty()) {
+
+                response.setStatus(
+                        HttpServletResponse.SC_BAD_REQUEST
+                );
+
+                out.print(
+                        "{\"eliminada\":false,\"mensaje\":\"El ID de la reserva es obligatorio.\"}"
+                );
+
+                return;
+            }
+
+            try {
+
+                int idReserva =
+                        Integer.parseInt(
+                                idTexto.trim()
+                        );
+
+                boolean eliminada =
+                        reservaDAO.eliminar(
+                                idReserva
+                        );
+
+                if (eliminada) {
+
+                    out.print(
+                            "{\"eliminada\":true,\"mensaje\":\"Reserva eliminada correctamente.\"}"
+                    );
+
+                } else {
+
+                    out.print(
+                            "{\"eliminada\":false,\"mensaje\":\"No se encontró la reserva.\"}"
+                    );
+                }
+
+            } catch (NumberFormatException e) {
+
+                response.setStatus(
+                        HttpServletResponse.SC_BAD_REQUEST
+                );
+
+                out.print(
+                        "{\"eliminada\":false,\"mensaje\":\"El ID de la reserva no es válido.\"}"
+                );
+            }
+
+            return;
+        }
         /*
          * =====================================================
          * LISTAR TODAS LAS RESERVAS

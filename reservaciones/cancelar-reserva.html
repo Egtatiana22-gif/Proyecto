@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Gestionar reserva | Arte y Sabor</title>
+
     <link rel="stylesheet" href="../inicio/estilo.css">
     <link rel="stylesheet" href="../carrito/carrito.css">
     <link rel="stylesheet" href="cancelar-reserva.css">
@@ -14,28 +16,65 @@
 <body>
 
 <header>
+
     <div class="logo">
         <a href="../nosotros/nosotros.html">
-            <img src="../Imagenes/Icono.png" alt="Icono de Arte y Sabor">
+            <img
+                src="../Imagenes/Icono.png"
+                alt="Icono de Arte y Sabor">
         </a>
     </div>
 
     <nav>
         <ul class="menu">
-            <li><a href="../inicio/inicio.html">Inicio</a></li>
-            <li><a href="../menu/menu.html">Menú</a></li>
-            <li><a href="reservaciones.html">Reservaciones</a></li>
-            <li><a href="../tienda/tienda.html">Tienda</a></li>
-            <li><a href="../contacto/contacto.html">Contacto</a></li>
+
+            <li>
+                <a href="../inicio/inicio.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a href="../menu/menu.html">
+                    Menú
+                </a>
+            </li>
+
+            <li>
+                <a href="reservaciones.html">
+                    Reservaciones
+                </a>
+            </li>
+
+            <li>
+                <a href="../tienda/tienda.html">
+                    Tienda
+                </a>
+            </li>
+
+            <li>
+                <a href="../contacto/contacto.html">
+                    Contacto
+                </a>
+            </li>
+
         </ul>
     </nav>
 
     <div class="iconos">
+
         <a href="#" class="icono">
-            <img src="../Imagenes/usuario.png" alt="Perfil">
+
+            <img
+                src="../Imagenes/usuario.png"
+                alt="Perfil">
+
         </a>
 
-        <a href="#" class="icono" id="btnCarrito">
+        <a
+            href="#"
+            class="icono"
+            id="btnCarrito">
 
             <img
                 src="../Imagenes/carrito.png"
@@ -46,95 +85,154 @@
             </span>
 
         </a>
+
     </div>
+
 </header>
 
 
-<!-- ENCABEZADO -->
+<!-- =====================================================
+     ENCABEZADO
+====================================================== -->
 
 <section class="encabezado-cancelar">
-    <div class="encabezado-cancelar-contenido">
-        <span>ARTE Y SABOR</span>
 
-        <h1>Gestiona tu reserva</h1>
+    <div class="encabezado-cancelar-contenido">
+
+        <span>
+            ARTE Y SABOR
+        </span>
+
+        <h1>
+            Gestiona tu reserva
+        </h1>
 
         <p>
             Consulta los datos de tu reserva o cancélala
             de forma sencilla.
         </p>
 
-        <small>Gestión de reservas · Bogotá</small>
+        <small>
+            Gestión de reservas · Bogotá
+        </small>
+
     </div>
+
 </section>
 
 
-<!-- GESTIÓN DE RESERVA -->
+<!-- =====================================================
+     GESTIÓN DE RESERVA
+====================================================== -->
 
 <main class="gestion-contenedor">
 
     <section class="gestion-intro">
-        <span>GESTIÓN DE RESERVAS</span>
 
-        <h2>¿Qué necesitas hacer?</h2>
+        <span>
+            GESTIÓN DE RESERVAS
+        </span>
+
+        <h2>
+            ¿Qué necesitas hacer?
+        </h2>
 
         <p>
             Puedes consultar si tu reserva está registrada
-            o solicitar su cancelación.
+            o solicitar su Modificación o cancelación.
         </p>
+
     </section>
 
+
+    <!-- =================================================
+         OPCIONES
+    ================================================== -->
 
     <section class="opciones-reserva">
 
         <article class="opcion-reserva">
-            <div class="opcion-icono">🔎</div>
 
-            <h3>Consultar mi reserva</h3>
+            <div class="opcion-icono">
+                🔎
+            </div>
+
+            <h3>
+                Consultar mi reserva
+            </h3>
 
             <p>
                 Comprueba los datos de una reserva
                 que ya realizaste.
             </p>
 
-            <button type="button" id="btn-consultar">
+            <button
+                type="button"
+                id="btn-consultar">
+
                 Consultar reserva
+
             </button>
+
         </article>
 
 
         <article class="opcion-reserva">
-            <div class="opcion-icono">❌</div>
 
-            <h3>Cancelar mi reserva</h3>
+            <div class="opcion-icono">
+                ❌
+            </div>
+
+            <h3>
+                Cancelar mi reserva
+            </h3>
 
             <p>
                 Solicita la cancelación de una
                 reserva existente.
             </p>
 
-            <button type="button" id="btn-mostrar-cancelar">
+            <button
+                type="button"
+                id="btn-mostrar-cancelar">
+
                 Cancelar reserva
+
             </button>
+
         </article>
 
     </section>
 
 
-    <!-- CONSULTAR RESERVA -->
+    <!-- =====================================================
+         CONSULTAR RESERVA
+    ====================================================== -->
 
-    <section id="consulta-reserva" class="formulario-gestion oculto">
+    <section
+        id="consulta-reserva"
+        class="formulario-gestion oculto">
 
         <div class="titulo-gestion">
-            <span>01</span>
+
+            <span>
+                01
+            </span>
 
             <div>
-                <h2>Consultar mi reserva</h2>
+
+                <h2>
+                    Consultar mi reserva
+                </h2>
 
                 <p>
-                    Ingresa los datos utilizados al realizar
-                    tu reserva.
+                    Ingresa tu nombre, tu correo electrónico
+                    o tu número de teléfono utilizados al
+                    realizar tu reserva.
                 </p>
+
             </div>
+
         </div>
 
 
@@ -143,6 +241,7 @@
             <div class="fila-formulario">
 
                 <div class="campo">
+
                     <label for="nombre-consulta">
                         Nombre completo
                     </label>
@@ -151,12 +250,13 @@
                         type="text"
                         id="nombre-consulta"
                         placeholder="Tu nombre"
-                        required
-                    >
+                        required>
+
                 </div>
 
 
                 <div class="campo">
+
                     <label for="correo-consulta">
                         Correo electrónico
                     </label>
@@ -164,9 +264,8 @@
                     <input
                         type="email"
                         id="correo-consulta"
-                        placeholder="tucorreo@email.com"
-                        required
-                    >
+                        placeholder="tucorreo@email.com">
+
                 </div>
 
             </div>
@@ -175,38 +274,27 @@
             <div class="fila-formulario">
 
                 <div class="campo">
-                    <label for="fecha-consulta">
-                        Fecha de reserva
+
+                    <label for="telefono-consulta">
+                        Teléfono
                     </label>
 
                     <input
-                        type="date"
-                        id="fecha-consulta"
-                        required
-                    >
-                </div>
+                        type="tel"
+                        id="telefono-consulta"
+                        placeholder="Tu número de teléfono">
 
-
-                <div class="campo">
-                    <label for="hora-consulta">
-                        Hora
-                    </label>
-
-                    <select id="hora-consulta" required>
-                        <option value="">Selecciona</option>
-                        <option value="9:00 a. m.">9:00 a. m.</option>
-                        <option value="11:00 a. m.">11:00 a. m.</option>
-                        <option value="1:00 p. m.">1:00 p. m.</option>
-                        <option value="3:00 p. m.">3:00 p. m.</option>
-                        <option value="5:00 p. m.">5:00 p. m.</option>
-                    </select>
                 </div>
 
             </div>
 
 
-            <button type="submit" class="btn-gestion">
+            <button
+                type="submit"
+                class="btn-gestion">
+
                 Buscar reserva
+
             </button>
 
         </form>
@@ -214,195 +302,654 @@
     </section>
 
 
-    <!-- CANCELAR RESERVA -->
+    <!-- =====================================================
+         CANCELAR RESERVA
+    ====================================================== -->
 
-    <section id="cancelacion-reserva" class="formulario-gestion oculto">
+    <section
+        id="cancelacion-reserva"
+        class="formulario-gestion oculto">
 
         <div class="titulo-gestion">
-            <span>02</span>
+
+            <span>
+                02
+            </span>
 
             <div>
-                <h2>Cancelar mi reserva</h2>
+
+                <h2>
+                    Cancelar mi reserva
+                </h2>
 
                 <p>
-                    Completa los datos de tu reserva
-                    para solicitar la cancelación.
+                    Completa los datos utilizados al realizar
+                    tu reserva para buscarla y solicitar
+                    la cancelación.
                 </p>
+
             </div>
+
         </div>
 
 
-        <form id="formulario-cancelacion">
+ <form id="formulario-cancelacion">
 
-            <div class="fila-formulario">
+    <!-- =====================================================
+         DATOS PARA BUSCAR LA RESERVA
+    ====================================================== -->
 
-                <div class="campo">
-                    <label for="nombre-cancelacion">
-                        Nombre completo
-                    </label>
+    <div class="fila-formulario">
 
-                    <input
-                        type="text"
-                        id="nombre-cancelacion"
-                        placeholder="Tu nombre"
-                        required
-                    >
-                </div>
+        <div class="campo">
+
+            <label for="nombre-cancelacion">
+                Nombre completo
+            </label>
+
+            <input
+                type="text"
+                id="nombre-cancelacion"
+                placeholder="Tu nombre"
+                required>
+
+        </div>
 
 
-                <div class="campo">
-                    <label for="correo-cancelacion">
-                        Correo electrónico
-                    </label>
+        <div class="campo">
 
-                    <input
-                        type="email"
-                        id="correo-cancelacion"
-                        placeholder="tucorreo@email.com"
-                        required
-                    >
-                </div>
+            <label for="correo-cancelacion">
+                Correo electrónico
+            </label>
 
+            <input
+                type="email"
+                id="correo-cancelacion"
+                placeholder="tucorreo@email.com">
+
+        </div>
+
+    </div>
+
+
+    <div class="fila-formulario">
+
+        <div class="campo">
+
+            <label for="telefono-cancelacion">
+                Teléfono
+            </label>
+
+            <input
+                type="tel"
+                id="telefono-cancelacion"
+                placeholder="Tu número de teléfono">
+
+        </div>
+
+    </div>
+
+
+
+    <button
+    type="submit"
+    class="btn-gestion"
+    id="btn-buscar-cancelacion">
+
+    Buscar mis reservas
+
+    </button>
+
+
+    <!-- =====================================================
+         RESERVAS ENCONTRADAS
+    ====================================================== -->
+
+    <div
+        id="reservas-cancelacion"
+        class="bloque-cancelacion oculto">
+
+        <div class="titulo-bloque-cancelacion">
+
+            <h3>
+                Selecciona la reserva que deseas cancelar
+            </h3>
+
+            <p>
+                Encontramos las siguientes reservas con tus datos.
+            </p>
+
+        </div>
+
+
+        <div
+            id="lista-reservas-cancelacion"
+            class="lista-reservas-cancelacion">
+        </div>
+
+    </div>
+
+<!-- =====================================================
+     DATOS DE LA CANCELACIÓN
+====================================================== -->
+
+<div
+    id="datos-cancelacion"
+    class="bloque-cancelacion oculto">
+
+    <!-- RESERVA SELECCIONADA -->
+
+    <div
+        id="reserva-seleccionada"
+        class="reserva-seleccionada">
+
+        <div class="encabezado-reserva-seleccionada">
+
+            <div>
+                <span class="etiqueta-reserva">
+                    Reserva seleccionada
+                </span>
+
+                <h3 id="titulo-reserva-seleccionada"></h3>
             </div>
 
+            <button
+                type="button"
+                id="btn-cambiar-reserva"
+                class="btn-cambiar-reserva">
 
-            <div class="fila-formulario">
+                Cambiar reserva
 
-                <div class="campo">
-                    <label for="fecha-cancelacion">
-                        Fecha de reserva
-                    </label>
-
-                    <input
-                        type="date"
-                        id="fecha-cancelacion"
-                        required
-                    >
-                </div>
-
-
-                <div class="campo">
-                    <label for="hora-cancelacion">
-                        Hora de reserva
-                    </label>
-
-                    <select id="hora-cancelacion" required>
-                        <option value="">Selecciona</option>
-                        <option value="9:00 a. m.">9:00 a. m.</option>
-                        <option value="11:00 a. m.">11:00 a. m.</option>
-                        <option value="1:00 p. m.">1:00 p. m.</option>
-                        <option value="3:00 p. m.">3:00 p. m.</option>
-                        <option value="5:00 p. m.">5:00 p. m.</option>
-                    </select>
-                </div>
-
-            </div>
-
-
-            <div class="campo">
-                <label for="motivo">
-                    Motivo de cancelación
-                </label>
-
-                <select id="motivo" required>
-                    <option value="">
-                        Selecciona un motivo
-                    </option>
-
-                    <option value="Cambio de planes">
-                        Cambio de planes
-                    </option>
-
-                    <option value="Problema de horario">
-                        Problema de horario
-                    </option>
-
-                    <option value="Ya no puedo asistir">
-                        Ya no puedo asistir
-                    </option>
-
-                    <option value="Otro">
-                        Otro
-                    </option>
-                </select>
-            </div>
-
-
-            <div class="campo">
-                <label for="comentario">
-                    Comentario adicional
-                </label>
-
-                <textarea
-                    id="comentario"
-                    rows="5"
-                    placeholder="¿Quieres contarnos algo?"
-                ></textarea>
-            </div>
-
-
-            <button type="submit" class="btn-gestion btn-cancelar">
-                Solicitar cancelación
             </button>
 
-        </form>
-
-    </section>
+        </div>
 
 
-    <!-- INFORMACIÓN -->
+        <div
+            id="detalle-reserva-seleccionada"
+            class="detalle-reserva-seleccionada">
+
+            <!-- Aquí JavaScript colocará
+                 los datos de la reserva -->
+
+        </div>
+
+    </div>
+
+
+    <!-- MOTIVO -->
+
+    <div class="campo">
+
+        <label for="motivo">
+            Motivo de cancelación
+        </label>
+
+        <select id="motivo">
+
+            <option value="">
+                Selecciona un motivo
+            </option>
+
+            <option value="Cambio de planes">
+                Cambio de planes
+            </option>
+
+            <option value="Problema de horario">
+                Problema de horario
+            </option>
+
+            <option value="Ya no puedo asistir">
+                Ya no puedo asistir
+            </option>
+
+            <option value="Otro">
+                Otro
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- COMENTARIO -->
+
+    <div class="campo">
+
+        <label for="comentario">
+            Comentario adicional
+        </label>
+
+        <textarea
+            id="comentario"
+            rows="5"
+            placeholder="¿Quieres contarnos algo?"></textarea>
+
+        <small id="ayuda-comentario-cancelacion">
+            Este comentario es opcional.
+        </small>
+
+    </div>
+
+
+    <!-- SOLICITAR CANCELACIÓN -->
+
+    <button
+        type="submit"
+        class="btn-gestion btn-cancelar"
+        id="btn-solicitar-cancelacion">
+
+        Solicitar cancelación
+
+    <button
+    type="button"
+    id="btn-cancelar-formulario"
+    class="btn-modal btn-modal-secundario">
+
+    Cancelar
+
+    </button>
+
+</div>
+</form>
+</section>
+
+
+<!-- =====================================================
+     MODIFICAR RESERVA
+====================================================== -->
+
+<section
+    id="modificar-reserva"
+    class="formulario-gestion oculto">
+
+    <div class="titulo-gestion">
+
+        <span>
+            03
+        </span>
+
+        <div>
+
+            <h2>
+                Modificar mi reserva
+            </h2>
+
+            <p>
+                Actualiza los datos de tu reserva y guarda
+                los cambios.
+            </p>
+
+        </div>
+
+    </div>
+
+
+ <form id="formulario-modificar">
+
+    <!-- NOMBRE Y CORREO -->
+
+    <div class="fila-formulario">
+
+        <div class="campo">
+
+            <label for="nombre-modificar">
+                Nombre completo
+            </label>
+
+            <input
+                type="text"
+                id="nombre-modificar"
+                maxlength="80"
+                autocomplete="name"
+                required>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="correo-modificar">
+                Correo electrónico
+            </label>
+
+            <input
+                type="email"
+                id="correo-modificar"
+                maxlength="120"
+                autocomplete="email"
+                required>
+
+        </div>
+
+    </div>
+
+
+    <!-- TELÉFONO Y PERSONAS -->
+
+    <div class="fila-formulario">
+
+        <div class="campo">
+
+            <label for="telefono-modificar">
+                Teléfono
+            </label>
+
+            <input
+                type="tel"
+                id="telefono-modificar"
+                placeholder="300 000 0000"
+                inputmode="numeric"
+                pattern="3[0-9]{9}"
+                maxlength="10"
+                minlength="10"
+                autocomplete="tel"
+                required>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="personas-modificar">
+                Número de personas
+            </label>
+
+            <select
+                id="personas-modificar"
+                required>
+
+                <option value="">
+                    Selecciona
+                </option>
+
+                <option value="1">
+                    1 persona
+                </option>
+
+                <option value="2">
+                    2 personas
+                </option>
+
+                <option value="3">
+                    3 personas
+                </option>
+
+                <option value="4">
+                    4 personas
+                </option>
+
+                <option value="5">
+                    5 personas
+                </option>
+
+                <option value="6">
+                    6 personas
+                </option>
+
+                <option value="7">
+                    7 personas
+                </option>
+
+                <option value="8">
+                    8 personas
+                </option>
+
+                <option value="9">
+                    9 personas
+                </option>
+
+                <option value="10">
+                    10 personas
+                </option>
+
+                <option value="mas-de-10">
+                    Más de 10 personas
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- FECHA Y HORA -->
+
+    <div class="fila-formulario">
+
+        <div class="campo">
+
+            <label for="fecha-modificar">
+                Fecha
+            </label>
+
+            <input
+                type="date"
+                id="fecha-modificar"
+                required>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="hora-modificar">
+                Hora
+            </label>
+
+            <select
+                id="hora-modificar"
+                required>
+
+                <option value="">
+                    Selecciona un horario
+                </option>
+
+                <option value="9:00 a. m.">
+                    9:00 a. m.
+                </option>
+
+                <option value="11:00 a. m.">
+                    11:00 a. m.
+                </option>
+
+                <option value="1:00 p. m.">
+                    1:00 p. m.
+                </option>
+
+                <option value="3:00 p. m.">
+                    3:00 p. m.
+                </option>
+
+                <option value="5:00 p. m.">
+                    5:00 p. m.
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- EXPERIENCIA -->
+
+    <div class="campo">
+
+        <label for="experiencia-modificar">
+            Tipo de experiencia
+        </label>
+
+        <select
+            id="experiencia-modificar"
+            required>
+
+            <option value="">
+                Selecciona una experiencia
+            </option>
+
+            <option value="Mesa / Café">
+                ☕ Mesa / Café
+            </option>
+
+            <option value="Taller de Crochet">
+                🧶 Taller de Crochet
+            </option>
+
+            <option value="Taller de Pintura">
+                🎨 Taller de Pintura
+            </option>
+
+            <option value="Creación de Pulseras">
+                ✨ Creación de Pulseras
+            </option>
+
+            <option value="Experiencia con Café">
+                ☕ Experiencia con Café
+            </option>
+
+            <option value="Celebración / Evento">
+                🎉 Celebración / Evento
+            </option>
+
+            <option value="Otra">
+                💬 Otra
+            </option>
+
+        </select>
+
+    </div>
+    <!-- MENSAJE -->
+
+    <div class="campo">
+
+        <label for="mensaje-modificar">
+            Mensaje adicional
+        </label>
+
+        <textarea
+            id="mensaje-modificar"
+            rows="5"
+            maxlength="3000"
+            placeholder="¿Hay algo que debamos saber sobre tu reserva?"></textarea>
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    <button
+        type="submit"
+        class="btn-gestion"
+        id="btn-guardar-modificacion">
+
+        Guardar cambios
+
+    </button>
+
+
+    <button
+        type="button"
+        class="btn-modal btn-modal-secundario"
+        id="btn-cancelar-modificacion">
+
+        Cancelar
+
+    </button>
+
+</form>
+</section>
+
+
+<!-- =====================================================
+     INFORMACIÓN
+====================================================== -->
+    <!-- =====================================================
+         INFORMACIÓN
+    ====================================================== -->
 
     <section class="informacion-gestion">
 
         <div class="info-gestion">
-            <span>📅</span>
+
+            <span>
+                📅
+            </span>
 
             <div>
-                <h3>Consulta primero</h3>
+
+                <h3>
+                    Consulta primero
+                </h3>
 
                 <p>
                     Puedes revisar los datos de tu reserva
                     antes de solicitar una cancelación.
                 </p>
+
             </div>
+
         </div>
 
 
         <div class="info-gestion">
-            <span>💬</span>
+
+            <span>
+                💬
+            </span>
 
             <div>
-                <h3>¿Tienes alguna duda?</h3>
+
+                <h3>
+                    ¿Tienes alguna duda?
+                </h3>
 
                 <p>
                     Si necesitas ayuda con tu reserva,
-                    puedes comunicarte con nosotros.
+                    puedes comunicarte por teléfono
+                    con nosotros.
                 </p>
+
             </div>
+
         </div>
 
 
         <div class="info-gestion">
-            <span>☕</span>
+
+            <span>
+                ☕
+            </span>
 
             <div>
-                <h3>Estamos para ayudarte</h3>
+
+                <h3>
+                    Estamos para ayudarte
+                </h3>
 
                 <p>
                     Queremos que tu experiencia en
-                    Arte y Sabor sea especial.
+                    Arte y Sabor sea especial, así que
+                    no dudes en contactarnos.
                 </p>
+
             </div>
+
         </div>
 
     </section>
 
 
-    <!-- VOLVER -->
+    <!-- =====================================================
+         VOLVER
+    ====================================================== -->
 
     <section class="volver-reserva">
 
-        <h2>¿Quieres hacer una nueva reserva?</h2>
+        <h2>
+            ¿Quieres hacer una nueva reserva?
+        </h2>
 
         <p>
             Regresa al calendario y elige una nueva fecha
@@ -416,41 +963,108 @@
     </section>
 
 
-    <!-- MODAL CONSULTA -->
+    <!-- =====================================================
+         MODAL CONSULTA
+    ====================================================== -->
 
-    <div id="modal-consulta" class="modal-gestion">
+    <div
+        id="modal-consulta"
+        class="modal-gestion">
 
         <div class="modal-contenido">
 
             <button
                 type="button"
                 class="cerrar-modal"
-                id="cerrar-consulta"
-            >
+                id="cerrar-consulta">
+
                 ×
+
             </button>
 
-            <div class="modal-icono">🔎</div>
-
-            <h2>Consulta realizada</h2>
-
-            <p>
-                En esta versión de la página, la consulta
-                funciona como demostración.
-            </p>
-
-            <div class="mensaje-demo">
-                Cuando conectemos la página con una base
-                de datos, aquí aparecerán los datos reales
-                de tu reserva.
+            <div class="modal-icono">
+                🔎
             </div>
 
+            <h2>
+                Reserva encontrada
+            </h2>
+
+            <div
+                id="mensaje-consulta"
+                class="resumen-gestion">
+            </div>
+
+            <div class="acciones-modal-consulta">
+
+    <button
+        type="button"
+        class="btn-modal"
+        id="btn-modificar-reserva">
+
+        Modificar reserva
+
+    </button>
+
+    <button
+        type="button"
+        class="btn-modal"
+        id="aceptar-consulta">
+
+        Entendido
+
+    </button>
+
+</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL SISTEMA NO DISPONIBLE
+    ====================================================== -->
+
+    <div
+        id="modal-sistema"
+        class="modal-gestion">
+
+        <div class="modal-contenido modal-sistema-contenido">
+
+            <button
+                type="button"
+                class="cerrar-modal"
+                id="cerrar-modal-sistema"
+                aria-label="Cerrar">
+
+                ×
+
+            </button>
+
+            <div class="modal-icono modal-sistema-icono">
+                ⚠
+            </div>
+
+            <h2>
+                El Sistema temporalmente no está disponible
+            </h2>
+
+            <p>
+                En este momento no podemos consultar tu reserva
+                porque el sistema no está conectado con la base
+                de datos.
+
+                Por favor, intenta nuevamente más tarde.
+            </p>
+
             <button
                 type="button"
                 class="btn-modal"
-                id="aceptar-consulta"
-            >
+                id="aceptar-modal-sistema">
+
                 Entendido
+
             </button>
 
         </div>
@@ -458,107 +1072,242 @@
     </div>
 
 
-    <!-- MODAL CANCELACIÓN -->
+    <!-- =====================================================
+         MODAL RESERVA NO ENCONTRADA
+    ====================================================== -->
 
-    <div id="modal-cancelacion" class="modal-gestion">
+    <div
+        id="modal-no-encontrada"
+        class="modal-gestion">
 
         <div class="modal-contenido">
 
             <button
                 type="button"
                 class="cerrar-modal"
-                id="cerrar-cancelacion"
-            >
+                id="cerrar-modal-no-encontrada"
+                aria-label="Cerrar">
+
                 ×
+
             </button>
 
-            <div class="modal-icono">✓</div>
+            <div class="modal-icono">
+                ⚠
+            </div>
 
-            <h2>Solicitud recibida</h2>
+            <h2>
+                Reserva no encontrada
+            </h2>
 
             <p>
-                Tu solicitud de cancelación fue registrada
-                correctamente.
+                No encontramos una reserva con los datos ingresados.
+                Verifica el nombre, el correo o el teléfono.
             </p>
-
-            <div id="resumen-cancelacion" class="resumen-gestion"></div>
 
             <button
                 type="button"
                 class="btn-modal"
-                id="volver-reservas"
-            >
-                Volver a reservas
+                id="aceptar-modal-no-encontrada">
+
+                Entendido
+
             </button>
 
         </div>
 
     </div>
+<!-- =====================================================
+     MODAL CONFIRMAR CANCELACIÓN
+====================================================== -->
+
+<div
+    id="modal-cancelacion"
+    class="modal-gestion">
+
+    <div class="modal-contenido">
+
+        <button
+            type="button"
+            class="cerrar-modal"
+            id="cerrar-cancelacion"
+            aria-label="Cerrar">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-icono">
+            ☕
+        </div>
+
+
+        <h2>
+            ¿Confirmar cancelación?
+        </h2>
+
+
+        <p>
+            Revisa los datos de tu reserva antes
+            de confirmar la cancelación.
+        </p>
+
+
+        <div
+            id="resumen-cancelacion"
+            class="resumen-gestion">
+        </div>
+
+
+        <div class="acciones-modal-cancelacion">
+
+            <button
+                type="button"
+                class="btn-modal btn-modal-secundario"
+                id="cancelar-confirmacion">
+
+                Volver
+
+            </button>
+
+
+            <button
+                type="button"
+                class="btn-modal"
+                id="confirmar-cancelacion">
+
+                Sí, cancelar reserva
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     MODAL RESERVA MODIFICADA
+====================================================== -->
+
+<div
+    id="modal-modificacion"
+    class="modal-gestion">
+
+    <div class="modal-contenido">
+
+        <button
+            type="button"
+            class="cerrar-modal"
+            id="cerrar-modal-modificacion"
+            aria-label="Cerrar">
+
+            ×
+
+        </button>
+
+        <div class="modal-icono">
+            ☕
+        </div>
+
+        <h2>
+            ¡Reserva modificada!
+        </h2>
+
+        <p>
+            Tu reserva fue modificada correctamente.
+        </p>
+
+        <button
+            type="button"
+            class="btn-modal"
+            id="aceptar-modal-modificacion">
+
+            Aceptar
+
+        </button>
+
+    </div>
+
+</div>
+    <!-- =====================================================
+         CARRITO
+    ====================================================== -->
+
+    <div
+        class="fondo-carrito"
+        id="fondoCarrito">
+    </div>
+
+
+    <aside
+        class="carrito"
+        id="carrito">
+
+        <div class="carrito-header">
+
+            <h2>
+                🛒 Tu carrito
+            </h2>
+
+            <button id="cerrarCarrito">
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="carrito-productos"
+            id="carritoProductos">
+
+            <p class="carrito-vacio">
+                Tu carrito está vacío.
+            </p>
+
+        </div>
+
+
+        <div class="carrito-footer">
+
+            <div class="total-carrito">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="totalCarrito">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="btn-comprar"
+                id="btnComprar">
+
+                Finalizar compra
+
+            </button>
+
+        </div>
+
+    </aside>
+
 
 </main>
 
-<!-- CARRITO -->
 
-<div
-    class="fondo-carrito"
-    id="fondoCarrito">
-</div>
-
-<aside
-    class="carrito"
-    id="carrito">
-
-    <div class="carrito-header">
-
-        <h2>
-            🛒 Tu carrito
-        </h2>
-
-        <button id="cerrarCarrito">
-            ×
-        </button>
-
-    </div>
-
-    <div
-        class="carrito-productos"
-        id="carritoProductos">
-
-        <p class="carrito-vacio">
-            Tu carrito está vacío.
-        </p>
-
-    </div>
-
-    <div class="carrito-footer">
-
-        <div class="total-carrito">
-
-            <span>
-                Total
-            </span>
-
-            <strong id="totalCarrito">
-                $0
-            </strong>
-
-        </div>
-
-        <button
-            class="btn-comprar"
-            id="btnComprar">
-
-            Finalizar compra
-
-        </button>
-
-    </div>
-
-</aside>
+<!-- =====================================================
+     FOOTER
+====================================================== -->
 
 <footer>
 
-    <h3>Arte y Sabor</h3>
+    <h3>
+        Arte y Sabor
+    </h3>
 
     <p class="mensaje-footer">
         Gracias por ser parte de este espacio donde el café,
@@ -566,10 +1315,21 @@
     </p>
 
     <div class="datos-footer">
-        <p>📍 Bogotá, Colombia</p>
-        <p>🕐 Lunes a sábado · 9:00 a.m. - 7:00 p.m.</p>
-        <p>📞 +57 300 123 4567</p>
+
+        <p>
+            📍 Bogotá, Colombia
+        </p>
+
+        <p>
+            🕐 Lunes a sábado · 9:00 a.m. - 5:00 p.m.
+        </p>
+
+        <p>
+            📞 +57 300 123 4567
+        </p>
+
     </div>
+
 
     <p class="copyright">
         © 2026 Arte y Sabor · Todos los derechos reservados
@@ -578,8 +1338,13 @@
 </footer>
 
 
+<!-- =====================================================
+     SCRIPTS
+====================================================== -->
+
 <script src="cancelar-reserva.js"></script>
 <script src="../carrito/carrito.js"></script>
 <script src="../usuario/usuario.js"></script>
+
 </body>
 </html>

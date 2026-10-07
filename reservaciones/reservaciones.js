@@ -128,7 +128,46 @@ function esFechaPasada(fecha) {
 
     return fechaComparar < hoy;
 }
+/* HORA PASADA */
+function esHoraPasada(hora) {
 
+    if (!fechaSeleccionada || !esHoy(fechaSeleccionada)) {
+        return false;
+    }
+
+    const ahora = new Date();
+
+    const horaLimpia = hora
+        .replace(/\./g, "")
+        .toLowerCase();
+
+    const partes = horaLimpia.split(" ");
+
+    const horaMinutos = partes[0];
+    const periodo = partes[1];
+
+    const partesHora = horaMinutos.split(":");
+
+    let horas = Number(partesHora[0]);
+    const minutos = Number(partesHora[1]);
+
+    if (periodo === "p" && horas !== 12) {
+        horas += 12;
+    }
+
+    if (periodo === "a" && horas === 12) {
+        horas = 0;
+    }
+
+    const minutosHorario =
+        (horas * 60) + minutos;
+
+    const minutosActuales =
+        (ahora.getHours() * 60) +
+        ahora.getMinutes();
+
+    return minutosHorario <= minutosActuales;
+}
 
 /* CARGAR FECHA RECIBIDA */
 
@@ -516,7 +555,21 @@ function mostrarHorarios() {
             "5:00 p. m."
         ];
     }
+/* QUITAR HORAS QUE YA PASARON */
 
+horarios = horarios.filter(
+    function(hora) {
+        return !esHoraPasada(hora);
+    }
+);
+
+if (horarios.length === 0) {
+
+    horariosContenedor.innerHTML =
+        '<p class="mensaje-horarios">Ya no hay horarios disponibles para hoy.</p>';
+
+    return;
+}
 
     /* CREAR BOTONES DE HORARIO */
 
@@ -1095,66 +1148,102 @@ editarReserva.addEventListener(
     }
 );
 
-
 /* CONFIRMAR RESERVA */
 
 confirmarReserva.addEventListener(
     "click",
-    function() {
+    async function() {
 
-        /* CAMBIAR A CONFIRMACIÓN FINAL */
+        const datos = new URLSearchParams();
 
-        tituloConfirmacion.textContent =
-            "¡Reserva confirmada!";
+        datos.append(
+            "nombre",
+            document.getElementById("nombre").value.trim()
+        );
 
-        mensajeConfirmacion.textContent =
-            "Gracias por elegir Arte y Sabor. Tu reserva ha sido confirmada.";
+        datos.append(
+            "telefono",
+            document.getElementById("telefono").value.trim()
+        );
 
+        datos.append(
+            "correo",
+            document.getElementById("correo").value.trim()
+        );
 
-        editarReserva.style.display =
-            "none";
+        datos.append(
+            "personas",
+            document.getElementById("personas").value
+        );
 
-        confirmarReserva.style.display =
-            "none";
+        datos.append(
+            "fecha",
+            obtenerFechaFormato(fechaSeleccionada)
+        );
 
-        nuevaReserva.style.display =
-            "inline-block";
+        datos.append(
+            "hora",
+            document.getElementById("hora").value
+        );
 
+        datos.append(
+            "experiencia",
+            document.getElementById("experiencia").value
+        );
 
-        /* LIMPIAR FORMULARIO */
+        datos.append(
+            "mensaje",
+            document.getElementById("mensaje").value.trim()
+        );
 
-        formulario.reset();
+        try {
 
-        fechaSeleccionada =
-            null;
+            const respuesta = await fetch(
+                "http://localhost:8080/arte-y-sabor-api/reservas",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+                    body: datos.toString()
+                }
+            );
 
-        fechaInput.value =
-            "";
+            if (!respuesta.ok) {
+                throw new Error(
+                    "No fue posible guardar la reserva."
+                );
+            }
 
-        horaInput.value =
-            "";
+            tituloConfirmacion.textContent =
+                "¡Reserva confirmada!";
 
-        horariosContenedor.innerHTML =
-            '<p class="mensaje-horarios">Selecciona primero una fecha.</p>';
+            mensajeConfirmacion.textContent =
+                "Gracias por elegir Arte y Sabor. Tu reserva ha sido guardada correctamente.";
 
-        otraExperienciaContenedor.style.display =
-            "none";
+            editarReserva.style.display =
+                "none";
 
-        otraExperiencia.required =
-            false;
+            confirmarReserva.style.display =
+                "none";
 
+            nuevaReserva.style.display =
+                "inline-block";
 
-        /*
-         * IMPORTANTE:
-         * El calendario se regenera exactamente
-         * como antes.
-         */
+        } catch (error) {
 
-        generarCalendario();
+            console.error(error);
+
+            tituloConfirmacion.textContent =
+                "No se pudo guardar la reserva";
+
+            mensajeConfirmacion.textContent =
+                "Ocurrió un problema al guardar tu reserva. Por favor intenta nuevamente.";
+
+        }
     }
 );
-
-
 /* CERRAR CONFIRMACIÓN */
 
 const cerrarConfirmacion =
@@ -1227,7 +1316,7 @@ if (botonCancelar) {
 
             const confirmar =
                 confirm(
-                    "¿Estás seguro de que quieres cancelar o modificar tu reserva?"
+                    "¿Estás seguro de que quieres cancelar, modificar o consultar tu reserva?"
                 );
 
 
