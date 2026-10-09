@@ -129,101 +129,53 @@ public class ReservaDAO {
 
         return reservas;
     }
+// =========================================================
+// ACTUALIZAR RESERVA
+// =========================================================
 
+public boolean actualizar(Reserva reserva) {
 
-    // =========================================================
-    // ACTUALIZAR RESERVA
-    // =========================================================
+    String sql = """
+        UPDATE reservas
+        SET
+            nombre = ?,
+            telefono = ?,
+            correo = ?,
+            personas = ?,
+            fecha = ?,
+            hora = ?,
+            experiencia = ?,
+            mensaje = ?
+        WHERE id_reserva = ?
+        AND estado = 'ACTIVA'
+        """;
 
-    public boolean actualizar(Reserva reserva) {
+    try (
+        Connection conexion =
+                ConexionBD.conectar();
 
-        String sql = """
-            UPDATE reservas
-            SET
-                nombre = ?,
-                telefono = ?,
-                correo = ?,
-                personas = ?,
-                fecha = ?,
-                hora = ?,
-                experiencia = ?,
-                mensaje = ?,
-                estado = ?,
-                motivo_cancelacion = ?
-            WHERE id_reserva = ?
-            """;
+        PreparedStatement sentencia =
+                conexion.prepareStatement(sql)
+    ) {
 
-        try (
-            Connection conexion =
-                    ConexionBD.conectar();
+        sentencia.setString(1, reserva.getNombre());
+        sentencia.setString(2, reserva.getTelefono());
+        sentencia.setString(3, reserva.getCorreo());
+        sentencia.setString(4, reserva.getPersonas());
+        sentencia.setString(5, reserva.getFecha());
+        sentencia.setString(6, reserva.getHora());
+        sentencia.setString(7, reserva.getExperiencia());
+        sentencia.setString(8, reserva.getMensaje());
+        sentencia.setInt(9, reserva.getIdReserva());
 
-            PreparedStatement sentencia =
-                    conexion.prepareStatement(sql)
-        ) {
+        return sentencia.executeUpdate() > 0;
 
-            sentencia.setString(
-                    1,
-                    reserva.getNombre()
-            );
+    } catch (SQLException e) {
 
-            sentencia.setString(
-                    2,
-                    reserva.getTelefono()
-            );
-
-            sentencia.setString(
-                    3,
-                    reserva.getCorreo()
-            );
-
-            sentencia.setString(
-                    4,
-                    reserva.getPersonas()
-            );
-
-            sentencia.setString(
-                    5,
-                    reserva.getFecha()
-            );
-
-            sentencia.setString(
-                    6,
-                    reserva.getHora()
-            );
-
-            sentencia.setString(
-                    7,
-                    reserva.getExperiencia()
-            );
-
-            sentencia.setString(
-                    8,
-                    reserva.getMensaje()
-            );
-
-            sentencia.setString(
-                    9,
-                    reserva.getEstado()
-            );
-
-            sentencia.setString(
-                    10,
-                    reserva.getMotivoCancelacion()
-            );
-
-            sentencia.setInt(
-                    11,
-                    reserva.getIdReserva()
-            );
-
-            return sentencia.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-
-            e.printStackTrace();
-            return false;
-        }
+        e.printStackTrace();
+        return false;
     }
+}
 
 
     // =========================================================

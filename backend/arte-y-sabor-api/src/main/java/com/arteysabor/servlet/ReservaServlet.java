@@ -667,7 +667,113 @@ protected void doPost(
         return;
     }
 
+    // =========================================================
+    // MODIFICAR RESERVA
+    // =========================================================
 
+    if ("modificar".equals(accion)) {
+
+        String idParametro =
+                request.getParameter("idReserva");
+
+        if (idParametro == null
+                || idParametro.trim().isEmpty()) {
+
+            response.setStatus(
+                    HttpServletResponse.SC_BAD_REQUEST
+            );
+
+            out.print(
+                    "{\"actualizada\":false,\"mensaje\":\"Falta el ID de la reserva.\"}"
+            );
+
+            return;
+        }
+
+        try {
+
+            int idReserva =
+                    Integer.parseInt(idParametro);
+
+            String nombre =
+                    request.getParameter("nombre");
+
+            String telefono =
+                    request.getParameter("telefono");
+
+            String correo =
+                    request.getParameter("correo");
+
+            String personas =
+                    request.getParameter("personas");
+
+            String fecha =
+                    request.getParameter("fecha");
+
+            String hora =
+                    request.getParameter("hora");
+
+            String experiencia =
+                    request.getParameter("experiencia");
+
+            String mensaje =
+                    request.getParameter("mensaje");
+
+            Reserva reserva =
+                    new Reserva(
+                            nombre,
+                            telefono,
+                            correo,
+                            personas,
+                            fecha,
+                            hora,
+                            experiencia,
+                            mensaje
+                    );
+
+            reserva.setIdReserva(idReserva);
+
+            boolean actualizada =
+                    reservaDAO.actualizar(reserva);
+
+            if (actualizada) {
+
+                out.print(
+                        "{\"actualizada\":true,\"mensaje\":\"Reserva modificada correctamente.\"}"
+                );
+
+            } else {
+
+                out.print(
+                        "{\"actualizada\":false,\"mensaje\":\"No fue posible modificar la reserva.\"}"
+                );
+            }
+
+        } catch (NumberFormatException e) {
+
+            response.setStatus(
+                    HttpServletResponse.SC_BAD_REQUEST
+            );
+
+            out.print(
+                    "{\"actualizada\":false,\"mensaje\":\"El ID de la reserva no es válido.\"}"
+            );
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            response.setStatus(
+                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR
+            );
+
+            out.print(
+                    "{\"actualizada\":false,\"mensaje\":\"Ocurrió un error al modificar la reserva.\"}"
+            );
+        }
+
+        return;
+    }
     // =========================================================
     // CREAR RESERVA
     // =========================================================

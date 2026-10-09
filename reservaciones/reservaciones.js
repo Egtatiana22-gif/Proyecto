@@ -1263,71 +1263,52 @@ cerrarConfirmacion.addEventListener(
 );
 
 
+
 /* NUEVA RESERVA */
 
 nuevaReserva.addEventListener(
     "click",
     function() {
 
-        confirmacion.classList.remove(
-            "mostrar"
-        );
+        // Cerrar la ventana de confirmación
+        confirmacion.classList.remove("mostrar");
 
+        // Vaciar los campos del formulario
+        formulario.reset();
+
+        // Limpiar la fecha y el horario seleccionados
+        fechaSeleccionada = null;
+        fechaInput.value = "";
+        horaInput.value = "";
+
+        // Restablecer el calendario al mes actual
+        fechaActual = new Date();
+        generarCalendario();
+
+        // Limpiar los horarios
+        horariosContenedor.innerHTML =
+            '<p class="mensaje-horarios">Selecciona primero una fecha.</p>';
+
+        // Ocultar y limpiar la experiencia adicional
+        otraExperienciaContenedor.style.display = "none";
+        otraExperiencia.required = false;
+        otraExperiencia.value = "";
+
+        // Limpiar el resumen anterior
+        resumenReserva.innerHTML = "";
+
+        // Preparar el botón para la próxima reserva
+        nuevaReserva.textContent = "Aceptar";
+
+        // Volver al inicio de la página
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
     }
 );
 
-
-/* CERRAR AL HACER CLICK AFUERA */
-
-confirmacion.addEventListener(
-    "click",
-    function(evento) {
-
-        if (
-            evento.target ===
-            confirmacion
-        ) {
-
-            confirmacion.classList.remove(
-                "mostrar"
-            );
-        }
-    }
-);
-
-
-/* CANCELAR RESERVA */
-
-const botonCancelar =
-    document.getElementById(
-        "btn-cancelar"
-    );
-
-
-if (botonCancelar) {
-
-    botonCancelar.addEventListener(
-        "click",
-        function() {
-
-            const confirmar =
-                confirm(
-                    "¿Estás seguro de que quieres cancelar, modificar o consultar tu reserva?"
-                );
-
-
-            if (confirmar) {
-
-                window.location.href =
-                    "cancelar-reserva.html";
-            }
-        }
-    );
-}
 
 
 /* INICIAR */
