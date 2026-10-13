@@ -44,10 +44,11 @@ const fechasLimitadas = [
 /* HORARIOS */
 
 const horariosDisponibles = [
+    "7:00 a. m.",
     "9:00 a. m.",
     "11:00 a. m.",
-    "1:00 p. m.",
-    "3:00 p. m.",
+    "2:00 p. m.",
+    "4:00 p. m.",
     "5:00 p. m."
 ];
 
@@ -551,8 +552,9 @@ function mostrarHorarios() {
 
         horarios = [
             "9:00 a. m.",
-            "1:00 p. m.",
-            "5:00 p. m."
+            "11:00 a. m.",
+            "2:00 p. m.",
+            "4:00 p. m."
         ];
     }
 /* QUITAR HORAS QUE YA PASARON */
@@ -1309,6 +1311,24 @@ nuevaReserva.addEventListener(
     }
 );
 
+
+/* MODAL PARA GESTIONAR RESERVA */
+
+const btnCancelar = document.getElementById("btn-cancelar");
+const modalGestionar = document.getElementById("modal-gestionar-reserva");
+const btnAceptarGestionar = document.getElementById("btn-aceptar-gestionar");
+
+if (btnCancelar && modalGestionar && btnAceptarGestionar) {
+
+    btnCancelar.addEventListener("click", function () {
+        modalGestionar.classList.add("mostrar");
+    });
+
+    btnAceptarGestionar.addEventListener("click", function () {
+        window.location.href = "cancelar-reserva.html";
+    });
+
+}
 
 
 /* INICIAR */

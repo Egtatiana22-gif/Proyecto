@@ -956,3 +956,78 @@ form {
     }
 
 }
+
+/* MODAL GESTIONAR RESERVA */
+
+.modal-gestionar-reserva {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(35, 25, 18, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-gestionar-reserva.mostrar {
+    display: flex;
+}
+
+.modal-gestionar-contenido {
+    background: #fffaf2;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 28px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #d8c5a8;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    animation: aparecerModalGestionar 0.25s ease;
+}
+
+.modal-gestionar-icono {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.modal-gestionar-contenido h2 {
+    color: #5b3825;
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.modal-gestionar-contenido p {
+    color: #5d554b;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+#btn-aceptar-gestionar {
+    background: #526b46;
+    color: #fffaf2;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#btn-aceptar-gestionar:hover {
+    background: #3e5335;
+}
+
+@keyframes aparecerModalGestionar {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
