@@ -3,7 +3,6 @@
 const boton = document.getElementById("btnBienvenida");
 
 boton.addEventListener("click", function() {
-    alert("¡Bienvenido a la Cafetería Arte y Sabor! ☕❤️");
     window.location.href = "../nosotros/nosotros.html";
 });
 
@@ -35,6 +34,7 @@ btnVerMasTienda.addEventListener("click", function() {
     }
 });
 
+
 /* =========================================
    BOTÓN RESERVACIONES
 ========================================= */
@@ -49,47 +49,101 @@ if (fechaEvento && btnReservaciones) {
     const hoy = new Date();
 
     const año = hoy.getFullYear();
+    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoy.getDate()).padStart(2, "0");
 
-    const mes = String(
-        hoy.getMonth() + 1
-    ).padStart(2, "0");
-
-    const dia = String(
-        hoy.getDate()
-    ).padStart(2, "0");
-
-    const fechaHoy =
-        `${año}-${mes}-${dia}`;
+    const fechaHoy = `${año}-${mes}-${dia}`;
 
     /* No permitir fechas anteriores a hoy */
 
     fechaEvento.min = fechaHoy;
 
+    /* Crear mensaje de validación */
+
+    let mensajeFecha = document.getElementById("mensajeFecha");
+
+    if (!mensajeFecha) {
+        mensajeFecha = document.createElement("small");
+        mensajeFecha.id = "mensajeFecha";
+        mensajeFecha.style.display = "none";
+
+        fechaEvento.insertAdjacentElement("afterend", mensajeFecha);
+    }
+
+    /* Mostrar mensaje */
+
+    function mostrarMensaje(mensaje) {
+        mensajeFecha.textContent = mensaje;
+        mensajeFecha.style.display = "block";
+        mensajeFecha.style.color = "#B54747";
+        mensajeFecha.style.fontSize = "13px";
+        mensajeFecha.style.marginTop = "8px";
+        mensajeFecha.setAttribute("role", "alert");
+    }
+
+    /* Ocultar mensaje */
+
+    function ocultarMensaje() {
+        mensajeFecha.textContent = "";
+        mensajeFecha.style.display = "none";
+    }
+
+    /* Comprobar si la fecha es domingo */
+
+    function esDomingo(fecha) {
+        const fechaSeleccionada = new Date(fecha + "T12:00:00");
+        return fechaSeleccionada.getDay() === 0;
+    }
+
+    /* Validar fecha al seleccionarla */
+
+    fechaEvento.addEventListener("change", function () {
+
+        ocultarMensaje();
+
+        if (!fechaEvento.value) {
+            return;
+        }
+
+        if (fechaEvento.value < fechaHoy) {
+            fechaEvento.value = "";
+            mostrarMensaje("No puedes seleccionar una fecha anterior a hoy.");
+            return;
+        }
+
+        if (esDomingo(fechaEvento.value)) {
+            fechaEvento.value = "";
+            mostrarMensaje("Los domingos no tenemos abierto. Por favor, selecciona otro día!.");
+            return;
+        }
+    });
+
     /* Botón de reservaciones */
 
-    btnReservaciones.addEventListener("click", function() {
+    btnReservaciones.addEventListener("click", function () {
+
+        ocultarMensaje();
 
         /* Comprobar que haya una fecha */
 
         if (fechaEvento.value === "") {
-
-            alert(
-                "Por favor, selecciona una fecha antes de continuar."
-            );
-
+            mostrarMensaje("Por favor, selecciona una fecha para continuar.");
             return;
         }
 
         /* Comprobar que no sea una fecha anterior */
 
         if (fechaEvento.value < fechaHoy) {
-
-            alert(
-                "No puedes seleccionar una fecha anterior a hoy."
-            );
-
             fechaEvento.value = "";
+            mostrarMensaje("No puedes seleccionar una fecha anterior a hoy.");
+            return;
+        }
 
+        /* Comprobar que no sea domingo */
+
+        if (esDomingo(fechaEvento.value)) {
+            fechaEvento.value = "";
+            mostrarMensaje("Los domingos no estamos abiertos. Por favor, selecciona otro día.");
             return;
         }
 

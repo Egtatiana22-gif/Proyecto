@@ -546,7 +546,7 @@ document.addEventListener(
             "translateX(-50%)";
 
         mensaje.style.backgroundColor =
-            "#4A5A3A";
+            "#555555";
 
         mensaje.style.color =
             "#FFFFFF";
